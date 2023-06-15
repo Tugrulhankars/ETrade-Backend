@@ -1,0 +1,21 @@
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Core.Utilities.Ioc
+{
+    public static class ServiceTool
+    {
+        public static IServiceProvider ServiceProvider { get; private set; }
+
+        //.NET'in servis sağlayıcılarını al ve onları build et kendin
+        public static IServiceCollection Create(IServiceCollection services)
+        {
+            ServiceProvider = services.BuildServiceProvider();
+            return services;
+        }
+    }
+}
